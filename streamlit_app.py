@@ -39,7 +39,7 @@ def compare_and_print(old_list_path, new_list_path, output_path):
 
     print(f"Unique values present in 'new list' and not in 'old list' have been written to '{output_path}'")
 
-# Specify paths
+# Specify paths with double backslashes
 following_json_path = 'C:\\Kanak\\Unfollowers+\\Insta Data\\following.json'
 followers_json_path = 'C:\\Kanak\\Unfollowers+\\Insta Data\\followers_1.json'
 following_text_path = 'C:\\Kanak\\Unfollowers+\\Insta Data\\Following.txt'
