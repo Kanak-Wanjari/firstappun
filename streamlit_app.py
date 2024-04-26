@@ -1,4 +1,3 @@
-
 import json
 
 def read_file(file_path):
@@ -19,7 +18,7 @@ def extract_values_from_json(json_file_path, output_file_path):
         data = json.load(file)
 
     with open(output_file_path, 'w') as output_file:
-        for entry in data:
+        for entry in data["relationships_following"]:  # Adjusted to match JSON structure
             value = entry["string_list_data"][0]["value"]
             output_file.write(f"{value}\n")
 
@@ -41,14 +40,14 @@ def compare_and_print(old_list_path, new_list_path, output_path):
     print(f"Unique values present in 'new list' and not in 'old list' have been written to '{output_path}'")
 
 # Specify paths
-following_json_path = 'C:\Kanak\Unfollowers+\Insta Data\following.json'
-followers_json_path = 'C:\Kanak\Unfollowers+\Insta Data\followers_1.json'
-following_text_path = 'C:\Kanak\Unfollowers+\Insta Data\Following.txt'
-followers_text_path = 'C:\Kanak\Unfollowers+\Insta Data\Followers.txt'
+following_json_path = r'C:\Kanak\Unfollowers+\Insta Data\following.json'
+followers_json_path = r'C:\Kanak\Unfollowers+\Insta Data\followers_1.json'
+following_text_path = r'C:\Kanak\Unfollowers+\Insta Data\Following.txt'
+followers_text_path = r'C:\Kanak\Unfollowers+\Insta Data\Followers.txt'
 following_not_in_followers_path = r'C:\Kanak\Unfollowers+\Insta Data\following_not_in_followers.txt'
-old_list_path = 'C:\Kanak\Unfollowers+\Insta Data\New 12\following_not_in_followers.txt'
-new_list_path = 'C:\Kanak\Unfollowers+\Insta Data\following_not_in_followers.txt'
-output_difference_path = 'C:\Kanak\Unfollowers+\Insta Data\Difference.txt'
+old_list_path = r'C:\Kanak\Unfollowers+\Insta Data\New 12\following_not_in_followers.txt'
+new_list_path = r'C:\Kanak\Unfollowers+\Insta Data\following_not_in_followers.txt'
+output_difference_path = r'C:\Kanak\Unfollowers+\Insta Data\Difference.txt'
 
 # Extract values from JSON files and write to text files
 extract_values_from_json(following_json_path, following_text_path)
